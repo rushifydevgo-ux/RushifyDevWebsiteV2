@@ -21,7 +21,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script>
   // Intro plays once per visit; skip it when returning to the homepage.
@@ -52,10 +52,27 @@
 
 <!-- INTRO CURTAIN -->
 <div class="intro-overlay" id="introOverlay" aria-hidden="true">
-  <svg class="intro-signature" viewBox="0 0 400 170" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path class="sig-word" pathLength="1" d="M40 128 C44 100 52 60 72 28 C84 10 118 14 114 42 C110 66 80 74 58 70 C80 78 96 100 108 126 C114 138 130 136 142 112 C148 96 150 84 154 84 C156 100 156 116 168 116 C180 116 184 94 188 84 C190 100 190 118 204 114 C214 110 218 100 224 98 C232 90 244 84 248 90 C252 98 232 104 232 112 C232 122 252 118 262 100 C270 70 274 36 282 14 C288 2 298 10 292 34 C286 62 278 96 276 122 C282 104 296 92 306 98 C314 104 304 122 316 120 C326 118 332 108 350 102"/>
-    <path class="sig-flourish" pathLength="1" d="M30 144 C150 158 300 152 392 120"/>
-  </svg>
+  <div class="intro-signature">
+    <svg viewBox="0 0 800 400" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <defs>
+        <mask id="sigMask" maskUnits="userSpaceOnUse" x="0" y="0" width="800" height="400">
+          <g stroke="#fff" stroke-width="36">
+        <path class="sig-s" pathLength="1" d="M 65.0 320.0 C 100.0 287.5 165.0 210.0 200.0 155.0 C 215.0 132.5 227.5 117.5 235.0 107.5 C 245.0 92.5 246.0 67.5 235.0 50.0 C 220.0 30.0 190.0 24.0 150.0 26.0 C 120.0 28.0 95.0 35.0 84.0 50.0 C 80.0 65.0 95.0 75.0 130.0 86.0 C 160.0 95.0 177.5 107.5 182.0 129.0" style="animation-delay:0.80s;animation-duration:0.26s"/>
+        <path class="sig-s" pathLength="1" d="M 235.0 112.5 C 270.0 80.0 320.0 44.0 370.0 27.5 C 395.0 22.5 407.5 30.0 402.5 50.0 C 395.0 75.0 350.0 130.0 310.0 150.0 C 290.0 161.0 270.0 162.5 260.0 157.5 C 252.5 155.0 250.0 150.0 250.0 145.0" style="animation-delay:1.06s;animation-duration:0.17s"/>
+        <path class="sig-s" pathLength="1" d="M 248.5 127.5 C 246.0 165.0 247.5 210.0 257.5 255.0 C 264.0 280.0 280.0 297.5 300.0 299.0 C 325.0 297.5 342.5 290.0 352.5 284.0" style="animation-delay:1.23s;animation-duration:0.10s"/>
+        <path class="sig-s" pathLength="1" d="M 411.0 231.0 C 398.0 243.0 378.0 268.0 362.0 295.0 C 370.0 299.6 390.0 286.0 418.0 269.6" style="animation-delay:1.34s;animation-duration:0.06s"/>
+        <path class="sig-s" pathLength="1" d="M 459.0 230.0 C 448.0 248.0 424.0 276.0 412.0 296.0 C 415.0 305.6 426.0 301.0 452.0 284.0 C 476.0 268.0 496.0 254.0 510.0 247.0" style="animation-delay:1.40s;animation-duration:0.08s"/>
+        <path class="sig-s" pathLength="1" d="M 529.0 220.0 C 526.0 236.0 520.0 250.0 517.0 270.0 C 514.0 286.0 508.0 298.0 492.0 303.6 C 480.0 306.0 470.0 300.0 473.6 289.0" style="animation-delay:1.48s;animation-duration:0.05s"/>
+        <path class="sig-s" pathLength="1" d="M 506.0 299.0 C 530.0 284.0 560.0 264.0 590.0 239.0" style="animation-delay:1.53s;animation-duration:0.04s"/>
+        <path class="sig-s" pathLength="1" d="M 700.0 85.0 C 650.0 154.0 590.0 240.0 549.0 301.0" style="animation-delay:1.57s;animation-duration:0.11s"/>
+        <path class="sig-s" pathLength="1" d="M 586.0 256.0 C 606.0 248.0 624.0 236.0 640.0 228.0 C 652.0 224.0 656.0 230.0 652.0 240.0 C 646.0 256.0 630.0 274.0 616.0 290.0 C 608.0 298.0 610.0 304.0 620.0 303.6 C 634.0 301.0 644.0 294.0 652.0 286.0 C 676.0 270.0 698.0 252.0 716.0 237.0" style="animation-delay:1.68s;animation-duration:0.12s"/>
+          </g>
+        </mask>
+      </defs>
+      <text class="sig-text" x="60" y="300" mask="url(#sigMask)">Rush</text>
+      <path class="sig-flourish" pathLength="1" d="M70 372 C260 390 520 386 730 346"/>
+    </svg>
+  </div>
 </div>
 
 <!-- NAV -->

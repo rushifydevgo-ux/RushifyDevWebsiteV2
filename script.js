@@ -16,12 +16,22 @@ if (introOverlay || introWord) {
   } else {
     // Hold every intro animation until the page has fully loaded, so a slow
     // first load (fonts/CSS) can't eat the start of the signature.
-    const startIntro = () => requestAnimationFrame(() => document.documentElement.classList.add('intro-start'));
-    if (document.readyState === 'complete') startIntro();
-    else {
-      window.addEventListener('load', startIntro, { once: true });
-      setTimeout(startIntro, 4000);
-    }
+    let started = false;
+    const startIntro = () => {
+      if (started) return;
+      started = true;
+      requestAnimationFrame(() => document.documentElement.classList.add('intro-start'));
+    };
+    // Wait for the page and the signature font so the writing isn't cut off.
+    const fontReady = document.fonts && document.fonts.load
+      ? document.fonts.load('100px "Mrs Saint Delafield"', 'Rush').catch(() => {})
+      : Promise.resolve();
+    const pageLoaded = new Promise((res) => {
+      if (document.readyState === 'complete') res();
+      else window.addEventListener('load', res, { once: true });
+    });
+    Promise.all([fontReady, pageLoaded]).then(startIntro);
+    setTimeout(startIntro, 4000);
     document.body.classList.add('intro-locked');
     if (introOverlay) {
       introOverlay.addEventListener('animationend', (e) => {

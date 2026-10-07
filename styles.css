@@ -883,16 +883,16 @@ body.offer-open { overflow: hidden; }
 }
 @media (max-width: 900px) { .pricing-cards { grid-template-columns: 1fr; } }
 
-/* INTRO SIGNATURE — pen-draws "Rush" on the curtain, then slides away with it */
+/* INTRO SIGNATURE — script "Rush" written stroke by stroke (script-font text revealed through an animated pen-stroke mask), then slides away with the curtain */
 .intro-signature {
   position: absolute; top: 50%; left: 50%;
-  width: min(88vw, 1150px); height: auto;
+  width: min(90vw, 1100px);
   transform: translate(-50%, -50%);
-  overflow: visible;
 }
-.intro-signature path { stroke-width: 3.5; stroke-dasharray: 1; stroke-dashoffset: 1; }
-.sig-word { stroke: var(--ink); animation: sigDraw 1.2s cubic-bezier(0.45,0,0.25,1) 0.8s forwards; }
-.sig-flourish { stroke: var(--accent); animation: sigDraw 0.45s ease-out 1.9s forwards; }
+.intro-signature svg { display: block; width: 100%; height: auto; overflow: visible; }
+.sig-text { font-family: 'Mrs Saint Delafield', cursive; font-size: 380px; fill: var(--ink); }
+.sig-s, .sig-flourish { stroke-dasharray: 1 2; stroke-dashoffset: 1; animation: sigDraw linear forwards; }
+.sig-flourish { stroke: var(--accent); stroke-width: 4; animation-duration: 0.3s; animation-delay: 1.8s; }
 @keyframes sigDraw { to { stroke-dashoffset: 0; } }
 
 .intro-seen .intro-overlay { display: none; }
@@ -911,7 +911,7 @@ body.offer-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .hero-h1 { animation: none; opacity: 1; } }
 
 /* Hold the homepage intro until JS flags the page as loaded (see script.js) */
-html.intro-pending:not(.intro-start) :is(.intro-overlay, .sig-word, .sig-flourish, .hero-label, .hero-sub-top, .hero-wordmark, .hero-h1, .hero-bottom) { animation-play-state: paused; }
+html.intro-pending:not(.intro-start) :is(.intro-overlay, .sig-s, .sig-flourish, .hero-label, .hero-sub-top, .hero-wordmark, .hero-h1, .hero-bottom) { animation-play-state: paused; }
 /* Returning visitors skip the intro, so bring the hero in right away */
 .intro-seen .hero-label { animation-delay: 0.1s; }
 .intro-seen .hero-sub-top { animation-delay: 0.2s; }
