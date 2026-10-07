@@ -242,9 +242,8 @@ document.querySelectorAll('form.contact-form').forEach((form) => {
       <div class="offer-done-view" hidden>
         <p class="section-label">You're in</p>
         <h2 class="offer-title">Check your inbox.</h2>
-        <p class="offer-text">Your <strong class="offer-hl">$500 off</strong> code is on its way. Here it is now:</p>
-        <div class="offer-code">${CODE}</div>
-        <p class="offer-fine">Enter it in the Promo code field on any quote form.</p>
+        <p class="offer-text">Your <strong class="offer-hl">$500 off</strong> code is on its way to your inbox. Enter it in the Promo code field on any quote form.</p>
+        <p class="offer-fine">Don't see it? Check your spam folder.</p>
         <button type="button" class="btn-primary offer-submit" data-close>Continue →</button>
       </div>
     </div>`;
