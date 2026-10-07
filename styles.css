@@ -886,11 +886,11 @@ body.offer-open { overflow: hidden; }
 /* INTRO SIGNATURE — pen-draws "Rush" on the curtain, then slides away with it */
 .intro-signature {
   position: absolute; top: 50%; left: 50%;
-  width: min(60vw, 520px); height: auto;
+  width: min(88vw, 1150px); height: auto;
   transform: translate(-50%, -50%);
   overflow: visible;
 }
-.intro-signature path { stroke-width: 4.5; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.intro-signature path { stroke-width: 3.5; stroke-dasharray: 1; stroke-dashoffset: 1; }
 .sig-word { stroke: var(--ink); animation: sigDraw 1.2s cubic-bezier(0.45,0,0.25,1) 0.3s forwards; }
 .sig-flourish { stroke: var(--accent); animation: sigDraw 0.45s ease-out 1.4s forwards; }
 @keyframes sigDraw { to { stroke-dashoffset: 0; } }
