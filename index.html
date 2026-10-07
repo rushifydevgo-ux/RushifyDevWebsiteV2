@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="styles.css">
 <script>
   // Intro plays once per visit; skip it when returning to the homepage.
-  try { if (sessionStorage.getItem('rushifyIntroSeen')) document.documentElement.classList.add('intro-seen'); } catch (e) {}
+  try { document.documentElement.classList.add(sessionStorage.getItem('rushifyIntroSeen') ? 'intro-seen' : 'intro-pending'); } catch (e) { document.documentElement.classList.add('intro-pending'); }
 </script>
 <script type="application/ld+json">
 {
@@ -46,6 +46,7 @@
   ]
 }
 </script>
+<noscript><style>.intro-overlay { display: none; }</style></noscript>
 </head>
 <body>
 

@@ -10,9 +10,18 @@ if (introOverlay || introWord) {
     try { sessionStorage.setItem('rushifyIntroSeen', '1'); } catch (e) {}
   }
   if (prefersReducedMotion || introSeen) {
+    document.documentElement.classList.add('intro-start');
     if (introOverlay) introOverlay.remove();
     if (introWord) introWord.remove();
   } else {
+    // Hold every intro animation until the page has fully loaded, so a slow
+    // first load (fonts/CSS) can't eat the start of the signature.
+    const startIntro = () => requestAnimationFrame(() => document.documentElement.classList.add('intro-start'));
+    if (document.readyState === 'complete') startIntro();
+    else {
+      window.addEventListener('load', startIntro, { once: true });
+      setTimeout(startIntro, 4000);
+    }
     document.body.classList.add('intro-locked');
     if (introOverlay) {
       introOverlay.addEventListener('animationend', (e) => {
@@ -196,8 +205,8 @@ document.querySelectorAll('form.contact-form').forEach((form) => {
 (() => {
   const KEY = 'rushifyOfferSeen';
   const store = {
-    get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } },
-    set() { try { localStorage.setItem(KEY, '1'); } catch (e) {} },
+    get() { try { return sessionStorage.getItem(KEY); } catch (e) { return null; } },
+    set() { try { sessionStorage.setItem(KEY, '1'); } catch (e) {} },
   };
   if (store.get()) return;
 
@@ -291,5 +300,13 @@ document.querySelectorAll('form.contact-form').forEach((form) => {
   });
 
   // On the homepage, open as the intro curtain finishes sliding away (~3s).
-  setTimeout(open, document.getElementById('introOverlay') ? 3100 : 2000);
+  const introWaiting = () => document.documentElement.classList.contains('intro-pending');
+  if (introWaiting()) {
+    // Open ~1s after the curtain starts sliding away (intro-start + 3.1s).
+    const t = setInterval(() => {
+      if (document.documentElement.classList.contains('intro-start')) { clearInterval(t); setTimeout(open, 3100); }
+    }, 100);
+  } else {
+    setTimeout(open, 2000);
+  }
 })();

@@ -909,3 +909,14 @@ body.offer-open { overflow: hidden; }
 .hero-h1 em { font-style: normal; color: var(--accent); }
 .hero-bottom { justify-content: flex-start; }
 @media (prefers-reduced-motion: reduce) { .hero-h1 { animation: none; opacity: 1; } }
+
+/* Hold the homepage intro until JS flags the page as loaded (see script.js) */
+html.intro-pending:not(.intro-start) :is(.intro-overlay, .sig-word, .sig-flourish, .hero-label, .hero-sub-top, .hero-wordmark, .hero-h1, .hero-bottom) { animation-play-state: paused; }
+/* Returning visitors skip the intro, so bring the hero in right away */
+.intro-seen .hero-label { animation-delay: 0.1s; }
+.intro-seen .hero-sub-top { animation-delay: 0.2s; }
+.intro-seen .hero-wordmark { animation-delay: 0.25s; }
+.intro-seen .hero-h1 { animation-delay: 0.4s; }
+.intro-seen .hero-bottom { animation-delay: 0.55s; }
+/* Service pages have no intro curtain */
+.service-hero .hero-label { animation-delay: 0.1s; }
