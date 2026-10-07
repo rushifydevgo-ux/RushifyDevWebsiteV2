@@ -186,3 +186,106 @@ document.querySelectorAll('form.contact-form').forEach((form) => {
     }
   });
 });
+
+// Welcome offer popup — email capture that emails a setup-fee-waiver code.
+// FormSubmit forwards the lead to us and auto-replies to the visitor with the code.
+(() => {
+  const KEY = 'rushifyOfferSeen';
+  const store = {
+    get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } },
+    set() { try { localStorage.setItem(KEY, '1'); } catch (e) {} },
+  };
+  if (store.get()) return;
+
+  const CODE = 'RUSHFREE';
+  const modal = document.createElement('div');
+  modal.className = 'offer-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-labelledby', 'offerTitle');
+  modal.hidden = true;
+  modal.innerHTML = `
+    <div class="offer-backdrop" data-close></div>
+    <div class="offer-card">
+      <button type="button" class="offer-close" aria-label="Close offer" data-close>×</button>
+      <div class="offer-form-view">
+        <p class="section-label">Limited-time offer</p>
+        <h2 id="offerTitle" class="offer-title">Skip the setup fee.</h2>
+        <p class="offer-text">Enter your email and we'll send you a code that <strong>waives the setup fee</strong> on any Rushify service.</p>
+        <form class="offer-form" action="https://formsubmit.co/ajax/rushifydev.go@gmail.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="🎁 New setup-fee-waiver signup — Rushify">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_autoresponse" value="Thanks for stopping by Rushify! Your promo code is ${CODE} — enter it in the Promo code field of any quote form to waive the setup fee on your project. Questions? Just reply to this email.">
+          <input type="hidden" name="Offer" value="Setup fee waiver">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <label class="offer-sr" for="offerEmail">Email</label>
+          <input type="email" id="offerEmail" name="Email" placeholder="you@company.com" required>
+          <button type="submit" class="btn-primary offer-submit">Send my code →</button>
+          <p class="offer-status" role="status" aria-live="polite"></p>
+        </form>
+        <p class="offer-fine">No spam. One email with your code.</p>
+      </div>
+      <div class="offer-done-view" hidden>
+        <p class="section-label">You're in</p>
+        <h2 class="offer-title">Check your inbox.</h2>
+        <p class="offer-text">Your code is on its way. Here it is now:</p>
+        <div class="offer-code">${CODE}</div>
+        <p class="offer-fine">Enter it in the Promo code field on any quote form.</p>
+        <button type="button" class="btn-primary offer-submit" data-close>Continue →</button>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+
+  const form = modal.querySelector('.offer-form');
+  const status = modal.querySelector('.offer-status');
+  const formView = modal.querySelector('.offer-form-view');
+  const doneView = modal.querySelector('.offer-done-view');
+  let lastFocus = null;
+
+  const close = () => {
+    modal.hidden = true;
+    document.body.classList.remove('offer-open');
+    store.set();
+    if (lastFocus) lastFocus.focus();
+  };
+  const open = () => {
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    document.body.classList.add('offer-open');
+    modal.querySelector('#offerEmail').focus();
+  };
+
+  modal.addEventListener('click', (e) => { if (e.target.closest('[data-close]')) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) close(); });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (form._honey.value) return;
+    const email = form.Email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      status.textContent = 'Please enter a valid email address.';
+      return;
+    }
+    const btn = form.querySelector('.offer-submit');
+    btn.disabled = true;
+    status.textContent = '';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form).entries())),
+      });
+      if (!res.ok) throw new Error('Request failed');
+      store.set();
+      formView.hidden = true;
+      doneView.hidden = false;
+    } catch (err) {
+      status.textContent = 'Something went wrong — please email rushifydev.go@gmail.com.';
+      btn.disabled = false;
+    }
+  });
+
+  // Wait for the homepage intro curtain to finish before interrupting.
+  setTimeout(open, document.getElementById('introOverlay') ? 5000 : 2000);
+})();
