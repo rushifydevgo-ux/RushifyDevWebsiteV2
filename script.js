@@ -286,6 +286,6 @@ document.querySelectorAll('form.contact-form').forEach((form) => {
     }
   });
 
-  // Wait for the homepage intro curtain to finish before interrupting.
-  setTimeout(open, document.getElementById('introOverlay') ? 5000 : 2000);
+  // On the homepage, open as the intro curtain finishes sliding away (~2.5s).
+  setTimeout(open, document.getElementById('introOverlay') ? 2600 : 2000);
 })();

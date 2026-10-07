@@ -870,3 +870,27 @@ body.offer-open { overflow: hidden; }
   color: var(--accent); border: 2px dashed rgba(255,77,28,0.5); border-radius: 12px; padding: 0.9rem; margin-bottom: 0.5rem;
 }
 .offer-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* SETUP + MONTHLY PRICING SIDE BY SIDE */
+.pricing-duo { grid-template-columns: 1fr; gap: 3rem; align-items: start; }
+.pricing-duo .pricing-note { max-width: 560px; }
+.pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; }
+.pricing-cards .pricing-card { height: 100%; }
+.pricing-cards .pricing-cta { align-self: stretch; margin-top: auto; justify-content: center; }
+.pricing-tag {
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin: 0 0 -0.75rem;
+}
+@media (max-width: 900px) { .pricing-cards { grid-template-columns: 1fr; } }
+
+/* INTRO SIGNATURE — pen-draws "Rush" on the curtain, then slides away with it */
+.intro-signature {
+  position: absolute; top: 50%; left: 50%;
+  width: min(60vw, 520px); height: auto;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+}
+.intro-signature path { stroke-width: 4.5; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.sig-word { stroke: var(--ink); animation: sigDraw 1.2s cubic-bezier(0.45,0,0.25,1) 0.3s forwards; }
+.sig-flourish { stroke: var(--accent); animation: sigDraw 0.45s ease-out 1.4s forwards; }
+@keyframes sigDraw { to { stroke-dashoffset: 0; } }
