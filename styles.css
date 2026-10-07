@@ -35,7 +35,7 @@ body.intro-locked { overflow: hidden; }
   inset: 0;
   z-index: 500;
   background: var(--paper);
-  animation: introSlideOut 0.9s cubic-bezier(0.76,0,0.24,1) 1.6s forwards;
+  animation: introSlideOut 0.9s cubic-bezier(0.76,0,0.24,1) 2.1s forwards;
 }
 .intro-word {
   position: fixed;
@@ -176,7 +176,7 @@ body.nav-open .nav-backdrop { opacity: 1; pointer-events: auto; }
 .hero-sub-top {
   font-size: 1rem; color: var(--mid); max-width: 260px;
   text-align: right; line-height: 1.5;
-  opacity: 0; animation: fadeUp 0.7s 1.85s forwards;
+  opacity: 0; animation: fadeUp 0.7s 2.35s forwards;
 }
 .hero-sub-top em { font-style: italic; color: var(--ink); }
 .hero-wordmark {
@@ -184,7 +184,7 @@ body.nav-open .nav-backdrop { opacity: 1; pointer-events: auto; }
   line-height: 0.88;
   margin: 1.5rem 0;
   opacity: 0;
-  animation: wordmarkReveal 1.2s cubic-bezier(0.16,1,0.3,1) 1.95s forwards;
+  animation: wordmarkReveal 1.2s cubic-bezier(0.16,1,0.3,1) 2.45s forwards;
 }
 .wm-rush {
   font-family: 'Syne', sans-serif;
@@ -205,7 +205,7 @@ body.nav-open .nav-backdrop { opacity: 1; pointer-events: auto; }
 }
 .hero-bottom {
   display: flex; justify-content: space-between; align-items: flex-end;
-  opacity: 0; animation: fadeUp 0.7s 2.15s forwards;
+  opacity: 0; animation: fadeUp 0.7s 2.65s forwards;
 }
 .hero-label {
   font-size: 0.75rem;
@@ -215,7 +215,7 @@ body.nav-open .nav-backdrop { opacity: 1; pointer-events: auto; }
   color: var(--accent);
   margin-bottom: 0.75rem;
   opacity: 0;
-  animation: fadeUp 0.6s 1.7s forwards;
+  animation: fadeUp 0.6s 2.2s forwards;
 }
 .hero-sub {
   max-width: 380px;
@@ -891,8 +891,8 @@ body.offer-open { overflow: hidden; }
   overflow: visible;
 }
 .intro-signature path { stroke-width: 3.5; stroke-dasharray: 1; stroke-dashoffset: 1; }
-.sig-word { stroke: var(--ink); animation: sigDraw 1.2s cubic-bezier(0.45,0,0.25,1) 0.3s forwards; }
-.sig-flourish { stroke: var(--accent); animation: sigDraw 0.45s ease-out 1.4s forwards; }
+.sig-word { stroke: var(--ink); animation: sigDraw 1.2s cubic-bezier(0.45,0,0.25,1) 0.8s forwards; }
+.sig-flourish { stroke: var(--accent); animation: sigDraw 0.45s ease-out 1.9s forwards; }
 @keyframes sigDraw { to { stroke-dashoffset: 0; } }
 
 .intro-seen .intro-overlay { display: none; }
@@ -904,7 +904,7 @@ body.offer-open { overflow: hidden; }
   line-height: 1.2; letter-spacing: -0.01em;
   color: #fff; max-width: 1000px;
   margin: 0 0 2rem;
-  opacity: 0; animation: fadeUp 0.7s 2.05s forwards;
+  opacity: 0; animation: fadeUp 0.7s 2.55s forwards;
 }
 .hero-h1 em { font-style: normal; color: var(--accent); }
 .hero-bottom { justify-content: flex-start; }

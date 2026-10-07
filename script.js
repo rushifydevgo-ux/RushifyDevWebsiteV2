@@ -290,6 +290,6 @@ document.querySelectorAll('form.contact-form').forEach((form) => {
     }
   });
 
-  // On the homepage, open as the intro curtain finishes sliding away (~2.5s).
-  setTimeout(open, document.getElementById('introOverlay') ? 2600 : 2000);
+  // On the homepage, open as the intro curtain finishes sliding away (~3s).
+  setTimeout(open, document.getElementById('introOverlay') ? 3100 : 2000);
 })();
