@@ -920,3 +920,6 @@ html.intro-pending:not(.intro-start) :is(.intro-overlay, .sig-word, .sig-flouris
 .intro-seen .hero-bottom { animation-delay: 0.55s; }
 /* Service pages have no intro curtain */
 .service-hero .hero-label { animation-delay: 0.1s; }
+
+.offer-big { display: block; font-size: 1.45em; line-height: 1.05; color: var(--accent); }
+.offer-hl { color: var(--accent); font-weight: 700; }

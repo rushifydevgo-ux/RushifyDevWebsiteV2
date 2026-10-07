@@ -223,14 +223,14 @@ document.querySelectorAll('form.contact-form').forEach((form) => {
       <button type="button" class="offer-close" aria-label="Close offer" data-close>×</button>
       <div class="offer-form-view">
         <p class="section-label">Limited-time offer</p>
-        <h2 id="offerTitle" class="offer-title">Skip the setup fee.</h2>
-        <p class="offer-text">Enter your email and we'll send you a code that <strong>waives the setup fee</strong> on any Rushify service.</p>
+        <h2 id="offerTitle" class="offer-title"><span class="offer-big">$500 off</span> your setup fee.</h2>
+        <p class="offer-text">Enter your email for <strong class="offer-hl">$500 off</strong> any Rushify setup fee — we'll send your code instantly.</p>
         <form class="offer-form" action="https://formsubmit.co/ajax/rushifydev.go@gmail.com" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="🎁 New setup-fee-waiver signup — Rushify">
+          <input type="hidden" name="_subject" value="🎁 New $500-off setup fee signup — Rushify">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_autoresponse" value="Thanks for stopping by Rushify! Your promo code is ${CODE} — enter it in the Promo code field of any quote form to waive the setup fee on your project. Questions? Just reply to this email.">
-          <input type="hidden" name="Offer" value="Setup fee waiver">
+          <input type="hidden" name="_autoresponse" value="Thanks for stopping by Rushify! Your promo code is ${CODE} — enter it in the Promo code field of any quote form to get $500 off the setup fee on your project. Questions? Just reply to this email.">
+          <input type="hidden" name="Offer" value="$500 off setup fee">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <label class="offer-sr" for="offerEmail">Email</label>
           <input type="email" id="offerEmail" name="Email" placeholder="you@company.com" required>
@@ -242,7 +242,7 @@ document.querySelectorAll('form.contact-form').forEach((form) => {
       <div class="offer-done-view" hidden>
         <p class="section-label">You're in</p>
         <h2 class="offer-title">Check your inbox.</h2>
-        <p class="offer-text">Your code is on its way. Here it is now:</p>
+        <p class="offer-text">Your <strong class="offer-hl">$500 off</strong> code is on its way. Here it is now:</p>
         <div class="offer-code">${CODE}</div>
         <p class="offer-fine">Enter it in the Promo code field on any quote form.</p>
         <button type="button" class="btn-primary offer-submit" data-close>Continue →</button>
