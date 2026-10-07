@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
-<title>Rushify Web Development — Affordable Websites for Small Businesses, Built Fast</title>
-<meta name="description" content="Rushify Web Development builds affordable, fast, conversion-focused websites for small businesses — from first draft to launch at the speed your growth demands.">
+<title>Bay Area Web Design for Small Businesses — Fast, Affordable Websites | Rushify</title>
+<meta name="description" content="Rushify Web Development designs and builds affordable, fast, conversion-focused websites for Bay Area small businesses — delivered at the speed your growth demands.">
 <link rel="canonical" href="https://rushifydev.com/">
 
-<meta property="og:title" content="Rushify Web Development — Affordable Websites for Small Businesses">
-<meta property="og:description" content="Fast. Beautiful. Built to convert.">
+<meta property="og:title" content="Bay Area Web Design for Small Businesses | Rushify Web Development">
+<meta property="og:description" content="Bay Area websites for small businesses. Fast. Beautiful. Built to convert.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rushifydev.com/">
 <meta property="og:site_name" content="Rushify Web Development">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rushify Web Development — Affordable Websites for Small Businesses">
-<meta name="twitter:description" content="Fast. Beautiful. Built to convert.">
+<meta name="twitter:title" content="Bay Area Web Design for Small Businesses | Rushify Web Development">
+<meta name="twitter:description" content="Bay Area websites for small businesses. Fast. Beautiful. Built to convert.">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230f0d0a'/%3E%3Ctext x='50' y='70' font-family='Arial, sans-serif' font-weight='800' font-size='60' fill='%23ff4d1c' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
 
@@ -23,6 +23,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>
+  // Intro plays once per visit; skip it when returning to the homepage.
+  try { if (sessionStorage.getItem('rushifyIntroSeen')) document.documentElement.classList.add('intro-seen'); } catch (e) {}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -30,7 +34,8 @@
   "name": "Rushify Web Development",
   "url": "https://rushifydev.com/",
   "email": "rushifydev.go@gmail.com",
-  "description": "Rushify Web Development builds affordable, fast, conversion-focused websites for small businesses — from first draft to launch at the speed your growth demands.",
+  "areaServed": { "@type": "Place", "name": "San Francisco Bay Area, California" },
+  "description": "Rushify Web Development designs and builds affordable, fast, conversion-focused websites for Bay Area small businesses — delivered at the speed your growth demands.",
   "makesOffer": [
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Design & Build" }, "url": "https://rushifydev.com/website-design.html" },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-Commerce Stores" }, "url": "https://rushifydev.com/ecommerce.html" },
@@ -74,14 +79,14 @@
   <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-top reveal">
-      <p class="hero-label">Web Development Studio</p>
+      <p class="hero-label">Bay Area Web Development Studio</p>
       <p class="hero-sub-top">Fast. Beautiful. <em>Built to convert.</em></p>
     </div>
-    <h1 class="hero-wordmark" aria-label="Rushify">
+    <div class="hero-wordmark" role="img" aria-label="Rushify">
       <span class="wm-rush">RUSH</span><span class="wm-ify">IFY</span>
-    </h1>
+    </div>
+    <h1 class="hero-h1">Bay Area web design for small businesses — websites that make your business <em>impossible to ignore</em>, delivered at the speed your growth demands.</h1>
     <div class="hero-bottom">
-      <p class="hero-sub">We design and build websites that make your business impossible to ignore — delivered at the speed your growth demands.</p>
       <div class="hero-actions">
         <a href="#services" class="btn-primary">Start a project →</a>
         <a href="#services" class="btn-ghost">View services <span>↓</span></a>

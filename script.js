@@ -5,7 +5,11 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 const introOverlay = document.getElementById('introOverlay');
 const introWord = document.getElementById('introWord');
 if (introOverlay || introWord) {
-  if (prefersReducedMotion) {
+  const introSeen = document.documentElement.classList.contains('intro-seen');
+  if (!introSeen) {
+    try { sessionStorage.setItem('rushifyIntroSeen', '1'); } catch (e) {}
+  }
+  if (prefersReducedMotion || introSeen) {
     if (introOverlay) introOverlay.remove();
     if (introWord) introWord.remove();
   } else {

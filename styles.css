@@ -894,3 +894,18 @@ body.offer-open { overflow: hidden; }
 .sig-word { stroke: var(--ink); animation: sigDraw 1.2s cubic-bezier(0.45,0,0.25,1) 0.3s forwards; }
 .sig-flourish { stroke: var(--accent); animation: sigDraw 0.45s ease-out 1.4s forwards; }
 @keyframes sigDraw { to { stroke-dashoffset: 0; } }
+
+.intro-seen .intro-overlay { display: none; }
+
+/* HERO H1 — primary SEO headline under the wordmark */
+.hero-h1 {
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: clamp(1.35rem, 3.1vw, 2.6rem);
+  line-height: 1.2; letter-spacing: -0.01em;
+  color: #fff; max-width: 1000px;
+  margin: 0 0 2rem;
+  opacity: 0; animation: fadeUp 0.7s 2.05s forwards;
+}
+.hero-h1 em { font-style: normal; color: var(--accent); }
+.hero-bottom { justify-content: flex-start; }
+@media (prefers-reduced-motion: reduce) { .hero-h1 { animation: none; opacity: 1; } }
